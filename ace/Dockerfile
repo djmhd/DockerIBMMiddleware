@@ -1,0 +1,3 @@
+FROM icr.io/appc-dev/ace-server@sha256:6ddc1cbb3437b4a0d75a5a2c6f7210656d2195d28faa0ab6f6ca4ef4f59d973c
+
+EXPOSE 7600 7800 7843 4414 4415 4416

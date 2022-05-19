@@ -1,0 +1,43 @@
+---
+version: '2'
+services:
+
+  #https://hub.docker.com/r/ibmcom/ace-mq
+  #https://www.ibm.com/docs/en/app-connect/containers_cd?topic=obtaining-app-connect-enterprise-server-image-from-cloud-container-registry
+  ace:
+    build:
+      context: ./ace
+    ports:
+      - '7600:7600'
+      - '7800:7800'
+      - '7843:7843'
+      - '4414-4416:4414-4416'
+    networks:
+      - multi-compose-net
+      - external-compose-net
+    environment:
+      - LICENSE=accept
+      - ACE_SERVER_NAME=ACESERVER      
+
+  #https://github.com/ibm-messaging/mq-container
+  mq:
+    build: 
+      context: ./mq
+    ports:
+      - '1414:1414'
+      - '9443:9443'
+    networks:
+      - multi-compose-net
+      - external-compose-net
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM_MEHDI
+      - MQ_ENABLE_METRICS=true
+      - MQ_DEV=false
+      - MQ_ADMIN_PASSWORD=adminmehdi
+      - MQ_APP_PASSWORD=appmehdi
+networks:
+  multi-compose-net:
+    driver: bridge
+  external-compose-net:
+    external: true
