@@ -18,9 +18,9 @@ Run the shell script
 
 You should have a result like this
 
-> Successfully tagged dockeribmmiddleware_mq:latest
-Recreating dockeribmmiddleware_ace_1 ... done
-Recreating dockeribmmiddleware_mq_1  ... done
+ - [x] Successfully tagged dockeribmmiddleware_mq:latest
+ - [x] Recreating dockeribmmiddleware_ace_1 ... done
+ - [x] Recreating dockeribmmiddleware_mq_1  ... done
 
 ## Access the ACE Integration admin web server
 
